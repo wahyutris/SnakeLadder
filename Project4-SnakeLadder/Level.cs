@@ -27,10 +27,10 @@ namespace Project4SnakeLadder
                     {
                         counter++;
                         player.Move(dice.getDiceNumber());
-                        foreach(Snake ular in snakes)
-                        {
-                            if (ular.isOnSnake(player.Location)) player.Location = ular.GotoTheSnake(player.Location);
-                        }
+                        //foreach(Snake ular in snakes)
+                        //{
+                        //    if (ular.isOnSnake(player.Location)) player.Location = ular.GotoTheSnake(player.Location);
+                        //}
 
                         if (player.isWin)
                         {
