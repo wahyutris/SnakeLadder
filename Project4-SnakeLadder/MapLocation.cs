@@ -10,5 +10,10 @@ namespace Project4SnakeLadder
                 //throw new Exception();
 			}
 		}
+
+        public MapLocation(Point point) : base(point.X,point.Y)
+        {
+            
+        }
     }
 }

@@ -6,16 +6,20 @@ namespace Project4SnakeLadder
     public class Level
     {
         private List<Player> _players;
+        public Dictionary<int, int> snakes;
+        private readonly Map _map;
         Dice dice = new Dice();
-        public Dictionary<MapLocation, MapLocation> snakes { get; set; }
 
-        public Level(List<Player> players)
+        public Level(List<Player> players, Map map)
         {
             _players = players;
+            _map = map;
         }
 
         public bool isPlaying()
         {
+            Snake ular = new Snake(snakes,_map);
+
             //Looping terus sampe ada yang menang
             while (true)
             {
@@ -26,18 +30,20 @@ namespace Project4SnakeLadder
                     if (!(player.isWin))
                     {
                         counter++;
+						
                         player.Move(dice.getDiceNumber());
-                        //foreach(Snake ular in snakes)
-                        //{
-                        //    if (ular.isOnSnake(player.Location)) player.Location = ular.GotoTheSnake(player.Location);
-                        //}
+						if (player.isWin)
+						{
+							Console.WriteLine("Congratulations, player {0} Won", counter);
+							return false;
+						}
 
-                        if (player.isWin)
+					    if (ular.isOnSnake(player.Location)) 
                         {
-                            Console.WriteLine("The Winner is player {0}", counter);
-                            return false;
-                        }
-                        Console.WriteLine("Lokasi player {0} adalah {1} ", counter, player.Location.X);
+                            Console.WriteLine("Ketemu ular");
+                            player.Move(ular.GotoTheSnake(player.Location).X - player.Location.X);
+                        }    
+						Console.WriteLine("Lokasi player {0} adalah {1} ", counter, player.Location.X);
                     }
                 }
             }

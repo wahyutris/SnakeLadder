@@ -7,7 +7,7 @@ namespace Project4SnakeLadder
 
         public int getDiceNumber()
 		{
-            int number = randomgenerator.Next(1, 6);
+            int number = randomgenerator.Next(1, 7);
             Console.WriteLine("Random Dice Number = {0}", number);
             return number;
         }

@@ -17,6 +17,11 @@ namespace Project4SnakeLadder
 			return (pathStep < _path.Count) ? _path[pathStep] : null; //ternary if
 		}
 
+        //public MapLocation goTo(MapLocation location)
+        //{
+        //    return location;
+        //}
+        
 		public int Length
 		{
 			get
