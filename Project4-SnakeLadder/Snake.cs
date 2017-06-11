@@ -22,7 +22,8 @@ namespace Project4SnakeLadder
 
         public MapLocation GotoTheSnake(MapLocation player)
         {
-            return new MapLocation(_locationSnakes[player.X], 0, _map);
+			//Console.WriteLine("Ketemu ular");
+			return new MapLocation(_locationSnakes[player.X], 0, _map);
         }
     }
 }

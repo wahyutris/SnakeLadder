@@ -42,6 +42,7 @@
     <Compile Include="Path.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Snake.cs" />
+    <Compile Include="Ladder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

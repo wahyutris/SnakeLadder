@@ -14,14 +14,10 @@ namespace Project4SnakeLadder
 
 		public MapLocation getLocationAt(int pathStep)
 		{
-			return (pathStep < _path.Count) ? _path[pathStep] : null; //ternary if
+            return (pathStep < _path.Count) ? _path[pathStep] : null;// _path[Math.Abs(_path.Count - pathStep)]; //ternary if
+            //return _path[pathStep];
 		}
 
-        //public MapLocation goTo(MapLocation location)
-        //{
-        //    return location;
-        //}
-        
 		public int Length
 		{
 			get

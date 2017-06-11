@@ -14,11 +14,7 @@ namespace Project4SnakeLadder
 
 		public MapLocation Location
 		{
-            //set
-            //{
-            //    return _path.getLocationAt(_pathStep);
-            //}
-			get
+            get
 			{
                 return _path.getLocationAt(_pathStep);
 			}
@@ -29,12 +25,7 @@ namespace Project4SnakeLadder
 			_pathStep += stepSize;
 		}
 
-        public MapLocation goTo (MapLocation location)
-        {
-            return location;
-        }
-
-		public bool isWin
+        public bool isWin
 		{
 			get
 			{
