@@ -36,14 +36,20 @@ namespace Project4SnakeLadder
 					loc.Add(new MapLocation(i, 0, map));
 				}
 				Path path = new Path(loc);
-            Console.WriteLine("START from {0} and FINISH at {1}", 0, path.Length);
+                Console.WriteLine("START from {0} and FINISH at {1}", 0, path.Length);
 
                 //Deklarasi player
                 List<Player> players = new List<Player>();
+                List<string> names = new List<string>();
                 Console.Write("Masukin jumlah player = ");
                 int n = int.Parse(Console.ReadLine());
                 for (int i = 0; i < n; i++)
-                	players.Add(new Player(path));
+                {
+                    players.Add(new Player(path));
+                    Console.Write("Name player {0} = ", i + 1);
+                    names.Add(Console.ReadLine());
+                }
+                	
 
                 //Deklarasi Snake
                 Console.Write("Total snakes = ");
@@ -108,7 +114,7 @@ namespace Project4SnakeLadder
                 }
 
                 //Game on
-                Level level = new Level(players, map, areaDimensions)// , ular, tangga);
+                Level level = new Level(players, names, map, areaDimensions)// , ular, tangga);
                 {
                     snakes = ular,
 				    ladders = tangga,
