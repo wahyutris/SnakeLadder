@@ -7,7 +7,7 @@ namespace Project4SnakeLadder
 		{
             if (!map.onMap(this)) //jika titik ini tidak di map
             {
-                //throw new Exception();
+                throw new Exception("point ga di map");
 			}
 		}
 

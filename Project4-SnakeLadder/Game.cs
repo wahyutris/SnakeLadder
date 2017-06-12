@@ -36,6 +36,7 @@ namespace Project4SnakeLadder
 					loc.Add(new MapLocation(i, 0, map));
 				}
 				Path path = new Path(loc);
+            Console.WriteLine("START from {0} and FINISH at {1}", 0, path.Length);
 
                 //Deklarasi player
                 List<Player> players = new List<Player>();
@@ -66,12 +67,12 @@ namespace Project4SnakeLadder
                 //RANDOM Snake Position
                 for (int i = 0; i < snake; i++)
                 {
-                    // Snake head
-                    int snakeHead = randomGenerator.Next(1, areaDimensions);
+	                // Snake head
+	                int snakeHead = randomGenerator.Next(snake + 1, areaDimensions);
 
                     //ngecek biar head gada yang sama
                     while(ular.ContainsKey(snakeHead))
-                        snakeHead = randomGenerator.Next(1, areaDimensions);
+                        snakeHead = randomGenerator.Next(snake + 1, areaDimensions);
 
                     // Snake tail
                     int snakeTail = randomGenerator.Next(1, snakeHead - 1);
@@ -95,9 +96,9 @@ namespace Project4SnakeLadder
                 for (int i = 0; i < ladder; i++)
                 {
                     //Ladder bottom
-                    int ladderBottom = randomGenerator.Next(1, areaDimensions);
+                    int ladderBottom = randomGenerator.Next(1, areaDimensions - ladder);
                     while (tangga.ContainsKey(ladderBottom))
-	                    ladderBottom = randomGenerator.Next(1, areaDimensions);
+	                    ladderBottom = randomGenerator.Next(1, areaDimensions - ladder);
 
                     //Ladder top
                     int ladderTop = randomGenerator.Next(ladderBottom + 1, areaDimensions);

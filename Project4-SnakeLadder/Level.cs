@@ -42,7 +42,13 @@ namespace Project4SnakeLadder
                         Console.WriteLine("Lokasi player {0} adalah {1} ", counter, player.Location.X);
 
                         int luckyNumber = dice.getDiceNumber();
-                        player.Move(luckyNumber);
+						
+                        if (player.shouldBounce(player.Location, luckyNumber))
+						{
+							player.Move(player.goToAfterBounce(player.Location, luckyNumber) - player.Location.X);
+                            Console.WriteLine("Player {0} is BOUNCING to {1}", counter, player.Location.X);
+						}
+                        else player.Move(luckyNumber);						
 
 						if (player.isWin)
 						{
@@ -52,16 +58,14 @@ namespace Project4SnakeLadder
 
 						if (ular.isOnSnake(player.Location)) 
 						{
-						    Console.WriteLine("Ketemu ular");
+                            Console.WriteLine("Be patient, you {0} found snake. Sliding down!",counter);;
 						    player.Move(ular.GotoTheSnake(player.Location).X - player.Location.X);
 						}
 						if (tangga.isOnLadder(player.Location))
 						{
-							Console.WriteLine("Tanggaaaaaaaa");
+                            Console.WriteLine("Luckily, you {0} found ladder. Climbing up!", counter);
 							player.Move(tangga.GotoTheLadder(player.Location).X - player.Location.X);
-						}
-
-						
+						}						
                     }
                 }
             }

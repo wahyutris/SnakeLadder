@@ -29,8 +29,18 @@ namespace Project4SnakeLadder
 		{
 			get
 			{
-				return _pathStep >= _path.Length;
+				return _pathStep == _path.Length;
 			}
 		}
+
+        public bool shouldBounce(MapLocation player, int stepSize)
+        {
+            return player.X + stepSize > _path.Length;
+        }
+
+        public int goToAfterBounce(MapLocation player, int stepSize)
+        {
+            return _path.Length - (stepSize - (_path.Length - player.X));
+        }
 	}
 }
