@@ -27,8 +27,8 @@ namespace Project4SnakeLadder
 
             Random randomGenerator = new Random();
 
-            //try
-            //{
+            try
+            {
 				//Dekalarasi posisi yang available buat di move
 				List<MapLocation> loc = new List<MapLocation>();
 				for (int i = 0; i < areaDimensions; i++)
@@ -120,11 +120,11 @@ namespace Project4SnakeLadder
                 {
                     Console.WriteLine("Game Over");
                 }
-            //}
-            //catch(Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //}
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 		}
     }
 }

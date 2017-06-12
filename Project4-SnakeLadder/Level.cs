@@ -58,14 +58,47 @@ namespace Project4SnakeLadder
 
 						if (ular.isOnSnake(player.Location)) 
 						{
-                            Console.WriteLine("Be patient, you {0} found snake. Sliding down!",counter);;
-						    player.Move(ular.GotoTheSnake(player.Location).X - player.Location.X);
+                            player.Move(ular.GotoTheSnake(player.Location).X - player.Location.X);
+                            Console.WriteLine("Be patient, you {0} found snake. Sliding down to {1}!", counter, player.Location.X);
 						}
 						if (tangga.isOnLadder(player.Location))
 						{
-                            Console.WriteLine("Luckily, you {0} found ladder. Climbing up!", counter);
-							player.Move(tangga.GotoTheLadder(player.Location).X - player.Location.X);
-						}						
+                            player.Move(tangga.GotoTheLadder(player.Location).X - player.Location.X);
+                            Console.WriteLine("Luckily, you {0} found ladder. Climbing up to {1}!", counter, player.Location.X);
+						}
+
+                        //Ulangi giliran kalau dapat 6
+                        while(luckyNumber == 6)
+                        {
+							Console.WriteLine("Lokasi player {0} adalah {1} ", counter, player.Location.X);
+
+							luckyNumber = dice.getDiceNumber();
+
+							if (player.shouldBounce(player.Location, luckyNumber))
+							{
+								player.Move(player.goToAfterBounce(player.Location, luckyNumber) - player.Location.X);
+								Console.WriteLine("Player {0} is BOUNCING to {1}", counter, player.Location.X);
+							}
+							else player.Move(luckyNumber);
+
+							if (player.isWin)
+							{
+								Console.WriteLine("Congratulations, player {0} Won", counter);
+								return false;
+							}
+
+							if (ular.isOnSnake(player.Location))
+							{
+								player.Move(ular.GotoTheSnake(player.Location).X - player.Location.X);
+								Console.WriteLine("Be patient, you {0} found snake. Sliding down to {1}!", counter, player.Location.X);
+							}
+							if (tangga.isOnLadder(player.Location))
+							{
+								player.Move(tangga.GotoTheLadder(player.Location).X - player.Location.X);
+								Console.WriteLine("Luckily, you {0} found ladder. Climbing up to {1}!", counter, player.Location.X);
+							}
+                        }
+                        Console.WriteLine("Giliran player {0} selesai di {1} ", counter, player.Location.X);
                     }
                 }
             }
