@@ -42,6 +42,8 @@ namespace Project4SnakeLadder
                         counter++;
 
                         Console.WriteLine("Lokasi player {0}-{1} adalah {2} ", counter, _names[counter-1], player.Location.X);
+                        Console.WriteLine("Please ENTER to play");
+                        Console.ReadKey();
 
                         int luckyNumber = dice.getDiceNumber();
 						

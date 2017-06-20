@@ -11,9 +11,9 @@ namespace Project4SnakeLadder
 			}
 		}
 
-        public MapLocation(Point point) : base(point.X,point.Y)
-        {
+        //public MapLocation(Point point) : base(point.X,point.Y)
+        //{
             
-        }
+        //}
     }
 }
